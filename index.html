@@ -254,6 +254,128 @@
             margin-right: 8px;
         }
         
+        /* Calendar Section */
+        .calendar-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .calendar-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .calendar-header {
+            background: var(--accent);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .calendar-header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .calendar-nav {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .calendar-nav button {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+        
+        .calendar-nav button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .calendar {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .calendar th {
+            background: var(--secondary);
+            padding: 15px 10px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--accent);
+            border-bottom: 1px solid #eee;
+        }
+        
+        .calendar td {
+            padding: 15px 10px;
+            text-align: center;
+            border: 1px solid #eee;
+            cursor: pointer;
+            transition: background 0.2s;
+            height: 80px;
+            vertical-align: top;
+        }
+        
+        .calendar td:hover {
+            background: var(--secondary);
+        }
+        
+        .calendar .other-month {
+            color: #ccc;
+        }
+        
+        .calendar .today {
+            background: rgba(230, 57, 70, 0.1);
+            font-weight: bold;
+        }
+        
+        .calendar .event {
+            background: var(--primary);
+            color: white;
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-size: 0.8rem;
+            margin-top: 4px;
+            display: inline-block;
+        }
+        
+        .calendar-actions {
+            padding: 20px;
+            background: var(--secondary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .add-event-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 24px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .add-event-btn:hover {
+            background: #c1121f;
+        }
+        
         /* CTA Section */
         .cta {
             padding: 80px 0;
@@ -339,6 +461,15 @@
             color: var(--primary);
             text-decoration: none;
             font-weight: 600;
+            padding: 10px 20px;
+            border: 2px solid var(--primary);
+            border-radius: 30px;
+            transition: all 0.3s;
+        }
+        
+        .source-link:hover {
+            background: var(--primary);
+            color: white;
         }
         
         /* Footer */
@@ -422,6 +553,17 @@
                 flex-direction: column;
                 align-items: center;
             }
+            
+            .calendar td {
+                padding: 8px 5px;
+                height: 60px;
+                font-size: 0.9rem;
+            }
+            
+            .calendar .event {
+                font-size: 0.7rem;
+                padding: 1px 4px;
+            }
         }
     </style>
 </head>
@@ -438,6 +580,7 @@
                     <a href="#">Сегодня</a>
                     <a href="#">Обзор</a>
                     <a href="#">Идеи</a>
+                    <a href="#calendar">Календарь</a>
                 </div>
                 <div class="auth-buttons">
                     <button class="btn btn-login">Войти</button>
@@ -493,7 +636,7 @@
             <h2 class="section-title">Популярные идеи</h2>
             <div class="inspiration-grid">
                 <div class="pin">
-                    <img src="https://i.pinimg.com/736x/01/b5/b8/01b5b848fbc793ec55176621b59a662e.jpg" alt="Интерьер" class="pin-img">
+                    <img src="https://i.pinimg.com/736x/b3/73/84/b37384572821258c0c32df2505bbb0c7.jpg" alt="Интерьер" class="pin-img">
                     <div class="pin-info">
                         <div class="pin-title">Идеи для домашнего интерьера</div>
                         <div class="pin-user">
@@ -503,7 +646,7 @@
                     </div>
                 </div>
                 <div class="pin">
-                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Еда" class="pin-img">
+                    <img src="https://i.pinimg.com/474x/02/0e/66/020e665913f0d12c8536b1e5bcf0722b.jpg?nii=t" alt="Еда" class="pin-img">
                     <div class="pin-info">
                         <div class="pin-title">Здоровые рецепты</div>
                         <div class="pin-user">
@@ -513,7 +656,7 @@
                     </div>
                 </div>
                 <div class="pin">
-                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Мода" class="pin-img">
+                    <img src="https://i.pinimg.com/474x/da/41/a0/da41a0bf8129fb9e66ea8f81667e00f4.jpg?nii=t" alt="Мода" class="pin-img">
                     <div class="pin-info">
                         <div class="pin-title">Стильные образы на осень</div>
                         <div class="pin-user">
@@ -523,7 +666,7 @@
                     </div>
                 </div>
                 <div class="pin">
-                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Путешествия" class="pin-img">
+                    <img src="https://avatars.mds.yandex.net/get-altay/14193233/2a00000193bc37b218546c5ea7cfed04442a/orig" alt="Путешествия" class="pin-img">
                     <div class="pin-info">
                         <div class="pin-title">Лучшие места для путешествий</div>
                         <div class="pin-user">
@@ -533,6 +676,51 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section id="calendar" class="calendar-section">
+        <div class="container">
+            <h2 class="section-title">Календарь Pinterest Events</h2>
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <h3 id="calendar-month">Май 2023</h3>
+                    <div class="calendar-nav">
+                        <button id="prev-month"><i class="fas fa-chevron-left"></i></button>
+                        <button id="next-month"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <table class="calendar">
+                    <thead>
+                        <tr>
+                            <th>Пн</th>
+                            <th>Вт</th>
+                            <th>Ср</th>
+                            <th>Чт</th>
+                            <th>Пт</th>
+                            <th>Сб</th>
+                            <th>Вс</th>
+                        </tr>
+                    </thead>
+                    <tbody id="calendar-body">
+                        <!-- Calendar will be generated by JavaScript -->
+                    </tbody>
+                </table>
+                <div class="calendar-actions">
+                    <button class="add-event-btn" id="add-event">Добавить событие</button>
+                    <div>
+                        <button class="btn" id="google-calendar-btn">Открыть в Google Calendar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Готовы найти свое следующее вдохновение?</h2>
+            <p>Присоединяйтесь к миллионам людей, которые уже используют Pinterest для поиска и сохранения идей.</p>
+            <button class="btn btn-cta">Зарегистрироваться бесплатно</button>
         </div>
     </section>
 
@@ -547,16 +735,8 @@
                     <div class="color color-accent">#1D3557</div>
                 </div>
                 <p>Палитра была выбрана из источника на Pinterest, посвященного сочетаниям цветов.</p>
-                <a href="https://ru.pinterest.com/pin/818944948209794816/" class="source-link" target="_blank">Посмотреть исходную палитру на Pinterest</a>
+                <a href="https://ru.pinterest.com/pin/918796734479/" class="source-link" target="_blank">Посмотреть исходную палитру на Pinterest</a>
             </div>
-        </div>
-    </section>
-
-    <section class="cta">
-        <div class="container">
-            <h2>Готовы найти свое следующее вдохновение?</h2>
-            <p>Присоединяйтесь к миллионам людей, которые уже используют Pinterest для поиска и сохранения идей.</p>
-            <button class="btn btn-cta">Зарегистрироваться бесплатно</button>
         </div>
     </section>
 
@@ -608,7 +788,115 @@
     </footer>
 
     <script>
-        // Простая анимация для кнопок
+        // Calendar functionality
+        let currentDate = new Date();
+        
+        function generateCalendar(date) {
+            const calendarBody = document.getElementById('calendar-body');
+            const calendarMonth = document.getElementById('calendar-month');
+            
+            // Clear previous calendar
+            calendarBody.innerHTML = '';
+            
+            // Set month and year in header
+            const monthNames = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
+                "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+            calendarMonth.textContent = `${monthNames[date.getMonth()]} ${date.getFullYear()}`;
+            
+            // Get first day of month and number of days in month
+            const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+            const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+            const daysInMonth = lastDay.getDate();
+            
+            // Get day of week for first day (0 = Sunday, 1 = Monday, etc.)
+            let firstDayIndex = firstDay.getDay();
+            // Convert to Monday-based week (0 = Monday, 6 = Sunday)
+            firstDayIndex = firstDayIndex === 0 ? 6 : firstDayIndex - 1;
+            
+            // Previous month days
+            const prevMonthLastDay = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
+            
+            // Next month days
+            let dayCounter = 1;
+            let nextMonthDayCounter = 1;
+            
+            // Create calendar rows
+            for (let i = 0; i < 6; i++) {
+                const row = document.createElement('tr');
+                
+                for (let j = 0; j < 7; j++) {
+                    const cell = document.createElement('td');
+                    
+                    if (i === 0 && j < firstDayIndex) {
+                        // Previous month
+                        const prevMonthDay = prevMonthLastDay - firstDayIndex + j + 1;
+                        cell.textContent = prevMonthDay;
+                        cell.classList.add('other-month');
+                    } else if (dayCounter > daysInMonth) {
+                        // Next month
+                        cell.textContent = nextMonthDayCounter;
+                        cell.classList.add('other-month');
+                        nextMonthDayCounter++;
+                    } else {
+                        // Current month
+                        cell.textContent = dayCounter;
+                        
+                        // Check if today
+                        const today = new Date();
+                        if (date.getMonth() === today.getMonth() && 
+                            date.getFullYear() === today.getFullYear() && 
+                            dayCounter === today.getDate()) {
+                            cell.classList.add('today');
+                        }
+                        
+                        // Add sample events
+                        if (dayCounter === 5 || dayCounter === 12 || dayCounter === 19 || dayCounter === 26) {
+                            const event = document.createElement('div');
+                            event.classList.add('event');
+                            event.textContent = 'Pinterest Event';
+                            cell.appendChild(event);
+                        }
+                        
+                        dayCounter++;
+                    }
+                    
+                    row.appendChild(cell);
+                }
+                
+                calendarBody.appendChild(row);
+                
+                // Stop creating rows if we've displayed all days
+                if (dayCounter > daysInMonth && nextMonthDayCounter > 7) {
+                    break;
+                }
+            }
+        }
+        
+        // Initialize calendar
+        generateCalendar(currentDate);
+        
+        // Navigation buttons
+        document.getElementById('prev-month').addEventListener('click', function() {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            generateCalendar(currentDate);
+        });
+        
+        document.getElementById('next-month').addEventListener('click', function() {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            generateCalendar(currentDate);
+        });
+        
+        // Add event button
+        document.getElementById('add-event').addEventListener('click', function() {
+            alert('Функция добавления события. В реальном приложении здесь будет форма для создания события.');
+        });
+        
+        // Google Calendar button
+        document.getElementById('google-calendar-btn').addEventListener('click', function() {
+            window.open('https://calendar.google.com/', '_blank');
+        });
+        
+        // Other functionality
         document.querySelectorAll('.btn').forEach(button => {
             button.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-2px)';
@@ -619,7 +907,7 @@
             });
         });
         
-        // Плавная прокрутка для навигационных ссылок
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -634,6 +922,22 @@
                         behavior: 'smooth'
                     });
                 }
+            });
+        });
+        
+        // Search functionality
+        document.querySelector('.search-bar button').addEventListener('click', function() {
+            const searchInput = document.querySelector('.search-bar input');
+            if (searchInput.value.trim() !== '') {
+                alert('Поиск: ' + searchInput.value);
+                searchInput.value = '';
+            }
+        });
+        
+        // Registration buttons
+        document.querySelectorAll('.btn-signup, .btn-cta').forEach(button => {
+            button.addEventListener('click', function() {
+                alert('Переход к регистрации на Pinterest');
             });
         });
     </script>
